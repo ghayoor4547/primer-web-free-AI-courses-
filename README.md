@@ -1,1 +1,2 @@
-# primer-web-free-AI-courses-
+# primer-web-free-AI-courses- 
+VISIT MY WEBSITE AND LEARNED SOMETHING NEW LIKE FREE AI COURSES

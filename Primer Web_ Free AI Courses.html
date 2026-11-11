@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#1F6F5C"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Primer Web: Free AI Courses</title>
+<style>
+:root{--bg:#F1F5F0;--card:#FFFFFF;--ink:#14231F;--mute:#5B6B65;--line:#D6DED8;--accent:#1F6F5C;--accent-ink:#FFFFFF;--hi:#F6C945;--ok:#1F7A45;--bad:#B3402F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A17;--card:#17262F;--card:#172420;--ink:#E8F0EC;--mute:#9DB0A8;--line:#2A3D37;--accent:#4FC1A0;--accent-ink:#0F1A17;--hi:#F6C945;--ok:#6CD49A;--bad:#F08A78}}
+:root[data-theme="dark"]{--bg:#0F1A17;--card:#172420;--ink:#E8F0EC;--mute:#9DB0A8;--line:#2A3D37;--accent:#4FC1A0;--accent-ink:#0F1A17;--hi:#F6C945;--ok:#6CD49A;--bad:#F08A78}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;margin:0;line-height:1.15}
+#app{max-width:480px;margin:0 auto;padding:20px 18px 110px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;padding:13px 18px;font-weight:600;width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px}
+.brand i{font-style:normal;background:var(--hi);color:#14231F;padding:0 6px;border-radius:6px;margin-right:2px}
+.icon{background:var(--card);border:1px solid var(--line);border-radius:10px;width:40px;height:40px;font-size:18px}
+.hero{background:var(--accent);color:var(--accent-ink);border-radius:22px;padding:20px;display:flex;gap:16px;align-items:center;margin-bottom:22px}
+.hero h2{font-size:24px;margin-bottom:6px}.hero p{margin:0;opacity:.9;font-size:14px}
+.ring{flex:none;width:84px;height:84px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-size:20px}
+h3.sec{font-size:18px;margin:6px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;display:flex;gap:12px;align-items:center;width:100%;text-align:left}
+.card .em{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px}
+.card h4{margin:0;font-size:16px}.card small{color:var(--mute);display:block}
+.bar{height:6px;background:var(--line);border-radius:4px;margin-top:8px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;border:1px solid var(--line);color:var(--mute);margin-right:6px}
+input[type=search]{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin-bottom:12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--card);border-radius:20px;padding:6px 14px;font-weight:500}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.back{background:none;border:0;padding:0;color:var(--accent);font-weight:600;margin-bottom:14px}
+.lesson-row{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left}
+.dot{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:14px}
+.dot.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.prose p{font-size:17px;line-height:1.65;margin:0 0 14px}
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px;margin-top:8px}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,transparent)}
+.msg{margin-top:10px;font-weight:600}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav div{max-width:480px;margin:0 auto;display:flex}
+nav button{flex:1;background:none;border:0;padding:10px 0 8px;color:var(--mute);font-size:12px;font-weight:600}
+nav button span{display:block;font-size:20px}
+nav button[aria-current=page]{color:var(--accent)}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{font:800 26px 'Bricolage Grotesque'}.stat small{color:var(--mute);display:block}
+.empty{color:var(--mute);padding:14px 0}
+.cert{background:var(--hi);color:#14231F;border-radius:14px;padding:12px;font-weight:600;text-align:center;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.grid .card{margin:0;height:100%}
+#app.narrow{max-width:760px}
+@media(min-width:860px){#app{max-width:1080px;padding:84px 32px 60px}nav{top:0;bottom:auto;border-top:0;border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}nav div{max-width:1080px;padding:0 32px;justify-content:flex-end}nav button{flex:none;padding:16px 20px;font-size:15px}nav button span{display:inline;margin-right:6px;font-size:16px}nav div::before{content:"Primer";font:800 22px 'Bricolage Grotesque',sans-serif;margin-right:auto;align-self:center;color:var(--ink)}.top{display:none}.hero{padding:28px 32px}.hero h2{font-size:34px}.hero p{font-size:16px}body::before{display:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<nav><div id="nav"></div></nav>
+<script>
+const C=[
+{id:1,t:"How AI learns",e:"🧠",c:"#CFE8DD",topic:"Foundations",lvl:"Beginner",d:"What AI is, and how models learn from examples.",L:[
+{t:"What counts as AI",m:5,b:["Artificial intelligence is software that performs tasks we usually link with human thinking: recognising images, translating language, or recommending a song.","Most modern AI is not hand-coded with rules. It is trained on many examples and finds patterns on its own."],q:"What makes most modern AI different from traditional software?",o:["It learns patterns from examples","It follows only fixed if-then rules","It never needs data"],a:0},
+{t:"Data, models and training",m:6,b:["A model is a mathematical function with many adjustable numbers, called parameters. Training adjusts them so the model’s guesses match the examples.","Better and more varied data usually gives a better model. Biased or thin data gives a biased or brittle one."],q:"What does training change inside a model?",o:["Its parameters","The user’s device","The original data"],a:0},
+{t:"Testing what you built",m:5,b:["A model should be tested on examples it has never seen. Otherwise it may simply memorise the training set, which is called overfitting.","Accuracy alone can mislead. If 95% of emails are not spam, a model that always says ‘not spam’ is 95% accurate and useless."],q:"Why test on unseen data?",o:["To check it generalises","To make training faster","To remove parameters"],a:0}]},
+{id:2,t:"Prompting that works",e:"💬",c:"#F8E7A8",topic:"Using AI",lvl:"Beginner",d:"Write clear instructions and get better answers from AI assistants.",L:[
+{t:"Be specific",m:4,b:["Vague requests get vague answers. State the task, the audience and the format you want.","Compare ‘Tell me about volcanoes’ with ‘Explain how volcanoes form in five sentences for a 12-year-old’."],q:"Which prompt is stronger?",o:["Write something about dogs","Write a 100-word guide to training a puppy to sit, in plain language"],a:1},
+{t:"Give context and examples",m:5,b:["Paste the text you want edited, and say what good looks like. One or two examples of the output you want often beat a long description.","Tell the assistant its role and constraints, such as word limits or what to avoid."],q:"What often helps most besides instructions?",o:["Examples of the output you want","Using capital letters","Making the prompt shorter"],a:0},
+{t:"Iterate and verify",m:5,b:["Treat the first answer as a draft. Ask for changes: shorter, simpler, with a table.","AI can state wrong facts confidently. Check anything important against a reliable source."],q:"What should you do with important facts from an AI?",o:["Verify them","Trust them if they sound sure","Ask the same question once"],a:0}]},
+{id:3,t:"Machine learning basics",e:"📈",c:"#D5DDF5",topic:"Foundations",lvl:"Intermediate",d:"Supervised, unsupervised and reinforcement learning in plain terms.",L:[
+{t:"Supervised learning",m:6,b:["In supervised learning every training example comes with the right answer, called a label. The model learns to predict labels for new inputs.","Examples: predicting house prices from features, or tagging photos as cat or dog."],q:"What is a label?",o:["The correct answer for an example","A model’s name","A type of chart"],a:0},
+{t:"Unsupervised learning",m:5,b:["With no labels, the model looks for structure. Clustering groups similar customers; dimensionality reduction squeezes many features into a few.","It is useful for exploring data when you do not yet know what to look for."],q:"Which is an unsupervised task?",o:["Grouping similar customers","Predicting a price from past prices with answers","Spell checking"],a:0},
+{t:"Reinforcement learning",m:6,b:["An agent takes actions in an environment and receives rewards. Over many tries it learns a strategy that earns more reward.","This approach is behind game-playing systems and some robotics."],q:"What guides a reinforcement learning agent?",o:["Rewards","Labels","Clusters"],a:0}]},
+{id:4,t:"Neural networks, step by step",e:"🕸️",c:"#F3D2C8",topic:"Foundations",lvl:"Intermediate",d:"Neurons, layers and how a network adjusts itself.",L:[
+{t:"Neurons and layers",m:6,b:["An artificial neuron multiplies inputs by weights, adds them up, and passes the result through an activation function.","Stacking layers of neurons lets a network build simple features first, then combine them into complex ones."],q:"What does a neuron do with its inputs?",o:["Weighs and sums them","Deletes them","Stores them as labels"],a:0},
+{t:"Learning by backpropagation",m:7,b:["The network makes a prediction, a loss function measures how wrong it was, and backpropagation works out how each weight contributed to the error.","Gradient descent then nudges every weight a little in the direction that lowers the loss."],q:"What does gradient descent do?",o:["Nudges weights to reduce the loss","Adds more data","Chooses the labels"],a:0},
+{t:"Transformers and language models",m:7,b:["Transformers use attention, which lets each word in a sentence look at every other word to decide what matters.","Large language models are transformers trained to predict the next piece of text on huge collections of writing."],q:"What does attention let a model do?",o:["Weigh which words matter to each other","Skip training","Read only the last word"],a:0}]},
+{id:5,t:"Using AI safely and fairly",e:"🛡️",c:"#DCEFC9",topic:"Ethics",lvl:"Beginner",d:"Privacy, bias and responsible use for everyday users.",L:[
+{t:"Protect your data",m:4,b:["Do not paste passwords, ID numbers or private documents into tools you do not trust. Check what a service does with your inputs.","Share the minimum needed to get the task done."],q:"What should you avoid sharing with AI tools?",o:["Passwords and private documents","Public recipes","Questions about maths"],a:0},
+{t:"Spot bias",m:5,b:["Models learn from human-made data, so they can repeat human biases. A hiring tool trained on past decisions may copy past unfairness.","Ask who is missing from the data and who is affected by the output."],q:"Where does AI bias often come from?",o:["The training data","The screen size","Internet speed"],a:0},
+{t:"Use it responsibly",m:4,b:["Say when AI helped with your work if others rely on it. Keep a human in charge of decisions that affect people’s lives.","Follow school or workplace rules on AI use."],q:"Who should make high-stakes decisions about people?",o:["A responsible human, using AI as input","AI alone","Nobody"],a:0}]},
+{id:6,t:"Build your first AI app",e:"🛠️",c:"#E3D4F0",topic:"Building",lvl:"Intermediate",d:"From idea to a working app that calls an AI model.",L:[
+{t:"Pick a small problem",m:4,b:["Start with one job an AI can do well, such as summarising notes or sorting feedback. Write down what a good result looks like.","Small, testable scope beats a grand plan."],q:"What is a good first AI project?",o:["One small, clear task","Everything at once","A project with no goal"],a:0},
+{t:"Call a model with an API",m:7,b:["An API lets your app send a prompt to a hosted model and receive text back. You keep the key secret on a server, never in public code.","Build a prompt template with placeholders, send the user’s input, and show the response."],q:"Where should an API key live?",o:["On a server, kept secret","In public front-end code","In the app’s title"],a:0},
+{t:"Test and improve",m:5,b:["Make a list of sample inputs and the answers you expect. Run them after every change to see what improved or broke.","Collect real user feedback and update the prompt and checks."],q:"Why keep a set of test inputs?",o:["To measure changes reliably","To impress users","To avoid prompts"],a:0}]}
+];
+const TOPICS=["All","Foundations","Using AI","Ethics","Building"];
+let S={done:{},saved:[],streak:0,last:"",dark:null};
+try{const r=localStorage.getItem("primer");if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+const save=()=>{try{localStorage.setItem("primer",JSON.stringify(S))}catch(e){}};
+let V={tab:"home",course:null,lesson:null,topic:"All",q:"",picked:null};
+const $=s=>document.querySelector(s);
+const done=c=>c.L.filter((_,i)=>S.done[c.id+"-"+i]).length;
+const pct=c=>Math.round(done(c)/c.L.length*100);
+const total=()=>C.reduce((a,c)=>a+done(c),0), all=()=>C.reduce((a,c)=>a+c.L.length,0);
+function ring(p){const r=34,L=2*Math.PI*r;return `<div class="ring"><svg width="84" height="84"><circle cx="42" cy="42" r="${r}" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="9"/><circle cx="42" cy="42" r="${r}" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="${L}" stroke-dashoffset="${L*(1-p/100)}"/></svg><b>${p}%</b></div>`}
+function card(c){const p=pct(c);return `<button class="card" data-c="${c.id}"><span class="em" style="background:${c.c}">${c.e}</span><span style="flex:1"><h4>${c.t}</h4><small>${c.lvl} · ${c.L.length} lessons · Free</small><div class="bar"><span style="width:${p}%"></span></div></span></button>`}
+function next(){for(const c of C){const i=c.L.findIndex((_,j)=>!S.done[c.id+"-"+j]);if(i>-1&&done(c)>0)return[c,i]}return null}
+const hdr=()=>`<div class="top"><div class="brand"><i>P</i>rimer</div><button class="icon" data-act="theme" aria-label="Toggle dark mode">◐</button></div>`;
+function home(){const p=Math.round(total()/all()*100),n=next();
+return hdr()+`<div class="hero">${ring(p)}<div><h2>${total()?"Keep going":"Learn AI, free"}</h2><p>${total()} of ${all()} lessons done${S.streak?` · ${S.streak}-day streak`:""}</p></div></div>`+
+(n?`<h3 class="sec">Continue</h3><button class="card" data-l="${n[0].id}-${n[1]}"><span class="em" style="background:${n[0].c}">${n[0].e}</span><span><h4>${n[0].L[n[1]].t}</h4><small>${n[0].t} · ${n[0].L[n[1]].m} min</small></span></button>`:"")+
+`<h3 class="sec">${n?"All courses":"Start with a course"}</h3>`+`<div class="grid">${C.map(card).join("")}</div>`}
+function explore(){const q=V.q.toLowerCase();const list=C.filter(c=>(V.topic=="All"||c.topic==V.topic)&&(c.t+c.d).toLowerCase().includes(q));
+return hdr()+`<h1 style="font-size:28px;margin-bottom:14px">Explore</h1><input type="search" id="q" placeholder="Search courses" value="${V.q}" aria-label="Search courses"><div class="chips">${TOPICS.map(t=>`<button class="chip" data-t="${t}" aria-pressed="${V.topic==t}">${t}</button>`).join("")}</div><div id="list" class="grid">${list.length?list.map(card).join(""):'<p class="empty">No courses match. Try another word or topic.</p>'}</div>`}
+function course(){const c=C.find(x=>x.id==V.course),sv=S.saved.includes(c.id),p=pct(c);
+return `<button class="back" data-act="back">‹ Back</button><div style="display:flex;gap:14px;align-items:center;margin-bottom:12px"><span class="em card" style="background:${c.c};width:64px;height:64px;font-size:32px;justify-content:center;padding:0;margin:0">${c.e}</span><div><h1 style="font-size:26px">${c.t}</h1><div style="margin-top:6px"><span class="tag">${c.lvl}</span><span class="tag">${c.topic}</span></div></div></div><p style="color:var(--mute)">${c.d}</p>${p==100?'<div class="cert">🎉 Course complete. Well done!</div>':""}<div style="display:flex;gap:10px;margin:14px 0"><button class="btn" data-l="${c.id}-${Math.max(0,c.L.findIndex((_,i)=>!S.done[c.id+"-"+i]))}">${done(c)?"Continue":"Start course"}</button><button class="btn ghost" style="width:auto" data-save="${c.id}" aria-pressed="${sv}">${sv?"Saved ★":"Save ☆"}</button></div>`+
+c.L.map((l,i)=>`<button class="lesson-row" data-l="${c.id}-${i}"><span class="dot ${S.done[c.id+"-"+i]?"done":""}">${S.done[c.id+"-"+i]?"✓":i+1}</span><span style="flex:1"><b>${l.t}</b><small style="display:block;color:var(--mute)">${l.m} min read</small></span></button>`).join("")}
+function lesson(){const c=C.find(x=>x.id==V.course),l=c.L[V.lesson],k=c.id+"-"+V.lesson,d=S.done[k],pk=V.picked;
+return `<button class="back" data-act="back">‹ ${c.t}</button><p style="color:var(--mute);margin:0 0 4px">Lesson ${V.lesson+1} of ${c.L.length} · ${l.m} min</p><h1 style="font-size:28px;margin-bottom:16px">${l.t}</h1><div class="prose">${l.b.map(x=>`<p>${x}</p>`).join("")}</div><div class="quiz"><b>Quick check</b><p style="margin:6px 0">${l.q}</p>${l.o.map((o,i)=>`<button class="opt ${pk===i?(i==l.a?"ok":"bad"):(d&&i==l.a?"ok":"")}" data-o="${i}">${o}</button>`).join("")}<div class="msg" role="status">${pk!==null?(pk==l.a?"Correct. Lesson complete.":"Not quite. Try another answer."):(d?"Completed earlier.":"")}</div></div><div style="display:flex;gap:10px">${V.lesson>0?`<button class="btn ghost" data-l="${c.id}-${V.lesson-1}">Previous</button>`:""}<button class="btn" ${d?"":"disabled"} data-act="next">${V.lesson<c.L.length-1?"Next lesson":"Finish course"}</button></div>`}
+function progress(){const sv=C.filter(c=>S.saved.includes(c.id));
+return hdr()+`<h1 style="font-size:28px;margin-bottom:14px">Progress</h1><div class="stats"><div class="stat"><b>${total()}</b><small>Lessons</small></div><div class="stat"><b>${C.filter(c=>pct(c)==100).length}</b><small>Courses</small></div><div class="stat"><b>${S.streak}</b><small>Day streak</small></div></div><h3 class="sec">Saved</h3>${sv.length?`<div class="grid">${sv.map(card).join("")}</div>`:'<p class="empty">Nothing saved yet. Tap Save on a course to find it here.</p>'}<h3 class="sec" style="margin-top:20px">In progress</h3>${C.filter(c=>pct(c)>0&&pct(c)<100).map(card).join("")||'<p class="empty">Start a lesson and it will show up here.</p>'}<button class="btn ghost" style="margin-top:20px" data-act="reset">Reset my progress</button>`}
+function render(){const v=V.lesson!==null?lesson():V.course?course():V.tab=="home"?home():V.tab=="explore"?explore():progress();
+$("#app").innerHTML=v;$("#app").className=(V.course||V.lesson!==null)?"narrow":"";
+$("#nav").innerHTML=[["home","🏠","Home"],["explore","🔍","Explore"],["progress","📊","Progress"]].map(([k,i,n])=>`<button data-tab="${k}" ${V.tab==k&&!V.course?'aria-current="page"':""}><span>${i}</span>${n}</button>`).join("");
+if(S.dark!==null)document.documentElement.dataset.theme=S.dark?"dark":"light";}
+function touchStreak(){const t=new Date().toDateString();if(S.last==t)return;const y=new Date(Date.now()-864e5).toDateString();S.streak=S.last==y?S.streak+1:1;S.last=t}
+document.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+if(d.tab){V={...V,tab:d.tab,course:null,lesson:null,picked:null}}
+else if(d.c){V.course=+d.c;V.lesson=null}
+else if(d.l){const[a,i]=d.l.split("-");V.course=+a;V.lesson=+i;V.picked=null;scrollTo(0,0)}
+else if(d.t){V.topic=d.t}
+else if(d.save){const id=+d.save;S.saved=S.saved.includes(id)?S.saved.filter(x=>x!=id):[...S.saved,id];save()}
+else if(d.o!==undefined){const c=C.find(x=>x.id==V.course),i=+d.o;V.picked=i;if(i==c.L[V.lesson].a){S.done[c.id+"-"+V.lesson]=1;touchStreak();save()}}
+else if(d.act=="back"){if(V.lesson!==null)V.lesson=null;else V.course=null}
+else if(d.act=="next"){const c=C.find(x=>x.id==V.course);if(V.lesson<c.L.length-1){V.lesson++;V.picked=null}else V.lesson=null;scrollTo(0,0)}
+else if(d.act=="theme"){const cur=document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");S.dark=cur!="dark";save()}
+else if(d.act=="reset"){if(confirm("Erase all progress and saved courses?")){S.done={};S.saved=[];S.streak=0;S.last="";save()}}
+else return;
+render()});
+document.addEventListener("input",e=>{if(e.target.id=="q"){V.q=e.target.value;const q=V.q.toLowerCase();const l=C.filter(c=>(V.topic=="All"||c.topic==V.topic)&&(c.t+c.d).toLowerCase().includes(q));$("#list").innerHTML=l.length?l.map(card).join(""):'<p class="empty">No courses match. Try another word or topic.</p>'}});
+render();
+</script>
+</body>
+</html>
